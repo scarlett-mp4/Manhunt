@@ -1,0 +1,12 @@
+name: Manhunt
+version: ${project.version}
+main: me.skarless.manhunt.Manhunt
+api-version: 1.16
+authors: [ Skarless ]
+description: Custom manhunt plugin because all of the public ones suck.
+website: prismc.net
+commands:
+  manhunt:
+    usage: </command>
+    description: Displays help for the Manhunt plugin.
+    aliases: [ mh ]
