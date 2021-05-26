@@ -26,7 +26,7 @@ public class AddHunter extends SubCommand {
         try {
             Player t = Bukkit.getPlayerExact(args[1]);
             if (!ManHuntUtils.isSpeedrunner(t)) {
-                if (!instance.hunterList.contains(p)) {
+                if (!instance.hunterList.contains(p.getUniqueId())) {
                     instance.hunterList.add(t.getUniqueId());
                     t.sendMessage(PluginUtil.getString("NowAHunter"));
                     p.sendMessage(playerPattern.matcher(PluginUtil.getString("HunterSet")).replaceAll(t.getName()));

@@ -120,10 +120,18 @@ public final class Manhunt extends JavaPlugin {
                                 }
                             }
                         } else {
-                            if (speedrunnerWorld == World.Environment.THE_END) {
-                                hunter.setCompassTarget(endMap.get(speedrunner.getUniqueId()));
-                            } else if (hunterWorld == World.Environment.NORMAL) {
-                                hunter.setCompassTarget(overworldPortalMap.get(speedrunner.getUniqueId()));
+                            if(hunterWorld == World.Environment.NETHER){
+                                if (Manhunt.getInstance().getConfig().getBoolean("TracksInNether")) {
+                                    compassMeta.setLodestoneTracked(false);
+                                    compassMeta.setLodestone(netherPortalMap.get(speedrunnerUUID));
+                                    compass.setItemMeta(compassMeta);
+                                }
+                            }else if (hunterWorld == World.Environment.NORMAL) {
+                                if(speedrunnerWorld == World.Environment.NETHER){
+                                    hunter.setCompassTarget(overworldPortalMap.get(speedrunner.getUniqueId()));
+                                }else if (speedrunnerWorld == World.Environment.THE_END){
+                                    hunter.setCompassTarget(endMap.get(speedrunner.getUniqueId()));
+                                }
                             }
                         }
                     } catch (Exception ignored) {
